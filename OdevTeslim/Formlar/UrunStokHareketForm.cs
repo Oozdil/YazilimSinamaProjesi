@@ -46,6 +46,8 @@ namespace OdevTeslim.Formlar
             e.Graphics.DrawRectangle(pen, new Rectangle(0, 0, ((Form)sender).Width - 1,
                 ((Form)sender).Height - 1));
         }
+
+        //Raporlama araçları
         public ReportDataSource rs = new ReportDataSource();
         private void btnEkle_Click(object sender, EventArgs e)
         {

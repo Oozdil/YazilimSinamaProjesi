@@ -31,20 +31,17 @@ namespace OdevTeslim.Formlar
             
 
             GridviewSekillendir();
-           
-
-
-
             this.SetStyle(System.Windows.Forms.ControlStyles.SupportsTransparentBackColor, true);
             this.BackColor = System.Drawing.Color.Transparent;
             this.ForeColor = KullaniciEkleForm.DefaultForeColor;
             this.Font = KullaniciEkleForm.DefaultFont;
             comBxRole.Visible = true;
-
-
         }
 
-
+        /*Kullanıcı listesinden bir personel seçiliyor
+         * Eğer zaten kullanıcı ise güncelleme
+         * Yeni kullanıcı olacaksa ekleme yapılır
+         */
         User OldUser;
         private void dgVPersonel_SelectionChanged(object sender, EventArgs e)
         {
@@ -135,7 +132,7 @@ namespace OdevTeslim.Formlar
             GridviewSekillendir();
             dgVPersonel.Rows[selectedRow].Selected = true;
         }
-
+        //Mevcut kullanıcı güncelleniyor
         Update updateIslemi;
         private void UserGuncelle()
         {
@@ -176,10 +173,11 @@ namespace OdevTeslim.Formlar
             {
                 MessageBox.Show("Sistem admin bilgilerine müdahale edilemez");
             }
-
-
         }
 
+
+
+        //YEni kullanıcı ekleniyor
         Insert insertIslemi;
         private void UserEkle()
         {

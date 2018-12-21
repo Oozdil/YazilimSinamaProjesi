@@ -33,6 +33,8 @@ namespace OdevTeslim.Formlar
 
 
         }
+
+        //Datagridviewdan personel seçiyoruz
         public Personel secilenPersonel;
         private void dataGridView1_SelectionChanged(object sender, EventArgs e)
         {
@@ -53,7 +55,7 @@ namespace OdevTeslim.Formlar
 
         private void KisiSecForm_Paint(object sender, PaintEventArgs e)
         {
-            //formun etrafına beyz çerçeve çizer
+            //formun etrafına beyaz çerçeve çizer
             Pen pen = new Pen(Color.White);
             pen.Width = 12.0F;
             e.Graphics.DrawRectangle(pen, new Rectangle(0, 0, ((Form)sender).Width - 1,

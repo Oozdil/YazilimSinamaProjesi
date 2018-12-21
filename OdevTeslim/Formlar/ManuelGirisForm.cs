@@ -20,7 +20,11 @@ namespace OdevTeslim.Formlar
             this.zimmetApp = za;
             InitializeComponent();
         }
-        
+        /*
+         * Bu form aslında otomatik yapılacak
+         * Personel ve departman ekleme işlemleri simule etmek için 
+         * eklenmiştir
+         */
         private void ManuelGirisForm_Load(object sender, EventArgs e)
         {
             // TODO: Bu kod satırı 'projeDataSeti.DepartmanTBL' tablosuna veri yükler. Bunu gerektiği şekilde taşıyabilir, veya kaldırabilirsiniz.

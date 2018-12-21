@@ -21,9 +21,7 @@ namespace OdevTeslim.Formlar
         private void MarkaEkleForm_Load(object sender, EventArgs e)
         {
             // TODO: Bu kod satırı 'projeDataSeti.MarkaTBL' tablosuna veri yükler. Bunu gerektiği şekilde taşıyabilir, veya kaldırabilirsiniz.
-            this.markaTBLTableAdapter1.Fill(this.projeDataSeti.MarkaTBL);
-           
-
+            this.markaTBLTableAdapter1.Fill(this.projeDataSeti.MarkaTBL);     
         }
 
         private void linkLblClose_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -48,13 +46,16 @@ namespace OdevTeslim.Formlar
                     zatenVar = true;
             }
 
-            if(zatenVar)
+            //Marka önceden kayıtlı mı?
+            if (zatenVar)
             MessageBox.Show("Marka zaten mevcut!");
             else
             {
                 MarkaEkle();
             }
         }
+
+        //MArka ekleniyor
         Insert insertIslemi;
         private void MarkaEkle()
         {

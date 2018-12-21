@@ -19,6 +19,7 @@ namespace OdevTeslim.Formlar
             InitializeComponent();
         }
 
+        //yeni marka ekleme
         private void btnyeniMarka_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -27,7 +28,7 @@ namespace OdevTeslim.Formlar
             this.Show();
             this.markaTBLTableAdapter1.Fill(this.projeDataSeti.MarkaTBL);
         }
-
+        //yani kategori ekleme
         private void btnYeniKategori_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -57,8 +58,6 @@ namespace OdevTeslim.Formlar
             this.kategoriTBLTableAdapter1.Fill(this.projeDataSeti.KategoriTBL);
             // TODO: Bu kod satırı 'projeDataSeti.MarkaTBL' tablosuna veri yükler. Bunu gerektiği şekilde taşıyabilir, veya kaldırabilirsiniz.
             this.markaTBLTableAdapter1.Fill(this.projeDataSeti.MarkaTBL);
-            
-        
 
         }
         int katId;
@@ -70,12 +69,18 @@ namespace OdevTeslim.Formlar
             selectedDataRow = ((DataRowView)comBxMarka.SelectedItem).Row;
              markaId = Convert.ToInt32(selectedDataRow["MarkaID"]);
 
-           
+           //Eğer ürün adı giriliyse ekleme yap
             if (txBxUrunAdi.Text.Trim() != "")
             {
                 UrunEkle();
             }
+            else
+            {
+                MessageBox.Show("Lütfen ürün adını giriniz");
+            }
         }
+
+        //ürün ekleme işlemi
         Insert insertIslemi;
         private void UrunEkle()
         {

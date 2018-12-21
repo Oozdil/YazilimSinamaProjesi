@@ -12,6 +12,10 @@ namespace OdevTeslim.Formlar
 {
     public partial class MetroFrameWorkDemoForm : MetroFramework.Forms.MetroForm
     {
+        /*
+         * Bu form MetroFrameWork kontrollerini
+         * örneklemek için eklenmiştir
+         */
         public MetroFrameWorkDemoForm()
         {
             InitializeComponent();
@@ -20,9 +24,7 @@ namespace OdevTeslim.Formlar
         private void MetroFrameWorkDemoForm_Load(object sender, EventArgs e)
         {
 
-        }
-
-       
+        }      
 
         private void metroBtnDemo_Click(object sender, EventArgs e)
         {

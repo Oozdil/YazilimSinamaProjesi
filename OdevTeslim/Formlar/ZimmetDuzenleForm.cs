@@ -37,7 +37,7 @@ namespace OdevTeslim.Formlar
 
         }
 
-
+        //Kimden alınacak radio buton değişimi
         private void KimdenSecimi(object sender, EventArgs e)
         {
             this.zimmetViewTableAdapter.FillByShId(this.zimmetTutanagiDataSet.ZimmetView, 0);
@@ -58,6 +58,7 @@ namespace OdevTeslim.Formlar
             }
         }
 
+        //Kime verilecek radio buton değişimi
         private void KimeSecimi(object sender, EventArgs e)
         {
             this.zimmetViewTableAdapter.FillByShId(this.zimmetTutanagiDataSet.ZimmetView, 0);
@@ -76,7 +77,7 @@ namespace OdevTeslim.Formlar
 
 
         }
-
+        
         private void btnKisiSecKimden_Click(object sender, EventArgs e)
         {
             KisiSecForm kisiSecForm = new KisiSecForm();
@@ -111,6 +112,7 @@ namespace OdevTeslim.Formlar
         }
 
 
+        //Raporlama araçları
         public ReportDataSource rs = new ReportDataSource();
         public class ZimmetTutanagi
         {
@@ -141,6 +143,7 @@ namespace OdevTeslim.Formlar
             }
         }
 
+        //zimmetleme validassyonları
         Stock seciliurun;
         private void btnZimmetAta_Click(object sender, EventArgs e)
         {
@@ -187,6 +190,8 @@ namespace OdevTeslim.Formlar
             }
         }
 
+
+        //zimmetleme işlemi
         private void AtamaYap()
         {
 
@@ -247,6 +252,8 @@ namespace OdevTeslim.Formlar
             return (kimden + " 'den " + kime + " 'e " + seciliurun.Isim + " zimmet ataması yapıldı");
         }
         int sonKayit;
+
+        //veritabanında zimmet güncellemesi
         private void AtamaUpdate(StokHareketi sh)
         {
             Update update = new Update();

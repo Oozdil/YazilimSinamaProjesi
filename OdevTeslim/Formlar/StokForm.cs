@@ -26,13 +26,10 @@ namespace OdevTeslim.Formlar
             this.stockViewTableAdapter1.Fill(this.projeDataSeti.StockView);
 
             GridviewSekillendir();
-
             this.SetStyle(System.Windows.Forms.ControlStyles.SupportsTransparentBackColor, true);
             this.BackColor = System.Drawing.Color.Transparent;
             this.ForeColor = StokForm.DefaultForeColor;
             this.Font = StokForm.DefaultFont;
-
-
         }
 
         private void btnStokEkle_Click(object sender, EventArgs e)
@@ -42,16 +39,11 @@ namespace OdevTeslim.Formlar
             stokGirForm.zimmetApp = zimmetApp;
             stokGirForm.ShowDialog();
             GridviewSekillendir();
-
-
         }
         private void GridviewSekillendir()
         {
             this.stockViewTableAdapter1.Fill(this.projeDataSeti.StockView);
         }
-
-
-
         private void dgVStock_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
             dgVStock.EnableHeadersVisualStyles = false;
@@ -83,6 +75,10 @@ namespace OdevTeslim.Formlar
 
             }
         }
+
+        /*Raporlama araçları
+         * Sorgu ekranımız rapora gönderiliyor
+         */
         public ReportDataSource rs = new ReportDataSource();
         private void btnEkle_Click(object sender, EventArgs e)
         {
@@ -94,6 +90,8 @@ namespace OdevTeslim.Formlar
                 int depo = Convert.ToInt32(dgVStock.Rows[i].Cells[4].Value.ToString());
                 int zimmet = Convert.ToInt32(dgVStock.Rows[i].Cells[5].Value.ToString());
                 int atik = Convert.ToInt32(dgVStock.Rows[i].Cells[6].Value.ToString());
+
+                
                 if (depo + atik + zimmet > 0)
 
                     lst.Add(new FirmaStok()
@@ -130,6 +128,7 @@ namespace OdevTeslim.Formlar
             public int Atik { get; set; }
         }
 
+        //Başka sayfadan bu forma geçildiğinde datagridview güncellenir
         private void StokForm_VisibleChanged(object sender, EventArgs e)
         {
             this.stockViewTableAdapter1.Fill(this.projeDataSeti.StockView);

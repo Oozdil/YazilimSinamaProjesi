@@ -26,6 +26,9 @@ namespace OdevTeslim.Formlar
             this.Focus();
         }
         int counter = 0;
+
+
+        //mesajımıza daktilo efekti veriyoruz
         private void timerMessage_Tick(object sender, EventArgs e)
         {
             if (richtxBxMessage.Text.Length < mesaj.Length)

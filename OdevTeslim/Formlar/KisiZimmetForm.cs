@@ -22,7 +22,7 @@ namespace OdevTeslim.Formlar
         public ZimmetApp zimmetApp;
         private void KisiZimmetForm_Load(object sender, EventArgs e)
         {
-         
+
 
             this.SetStyle(System.Windows.Forms.ControlStyles.SupportsTransparentBackColor, true);
             this.BackColor = System.Drawing.Color.Transparent;
@@ -30,12 +30,12 @@ namespace OdevTeslim.Formlar
             this.Font = KisiZimmetForm.DefaultFont;
             comBxDepartmanlar.Visible = true;
 
-
+            //Eğer kullanıcı bölüm şefi ise sadece kendi departmanını görebilir
             if (zimmetApp.appUser.RoleID == 3)
             {
                 this.departmanTBLTableAdapter.FillByDepID(this.projeDataSeti.DepartmanTBL, zimmetApp.appUser.PerDepID);
                 this.personelTBLTableAdapter.FillByDepID(this.projeDataSeti.PersonelTBL, zimmetApp.appUser.PerDepID);
-               
+
             }
             else
             {
@@ -46,7 +46,7 @@ namespace OdevTeslim.Formlar
 
 
 
-            comBxDepartmanlar.Visible = true;            
+            comBxDepartmanlar.Visible = true;
         }
 
         private void DepartmanSecimi()
@@ -55,7 +55,7 @@ namespace OdevTeslim.Formlar
             {
                 DataRow selectedDataRow = ((DataRowView)comBxDepartmanlar.SelectedItem).Row;
                 string DepartmanIsmi = selectedDataRow["DepIsim"].ToString();
-                int DepartmanID = Convert.ToInt32(selectedDataRow["DepID"]);                
+                int DepartmanID = Convert.ToInt32(selectedDataRow["DepID"]);
                 this.personelTBLTableAdapter.FillByDepID(this.projeDataSeti.PersonelTBL, DepartmanID);
             }
             catch
@@ -63,14 +63,18 @@ namespace OdevTeslim.Formlar
 
             }
         }
+
+        //Raporlama araçları
         public ReportDataSource rs = new ReportDataSource();
         public class KisiStok
         {
             public string StokID { get; set; }
             public string Kategori { get; set; }
             public string Marka { get; set; }
-            public string UrunAdi { get; set; }          
+            public string UrunAdi { get; set; }
         }
+
+        // Sorgu sonucumuz rapora aktarılıyor
         private void btnRaporAl_Click(object sender, EventArgs e)
         {
             List<KisiStok> lst = new List<KisiStok>();
@@ -79,11 +83,11 @@ namespace OdevTeslim.Formlar
             {
                 lst.Add(new KisiStok()
                 {
-                    StokID =dgVPersonelStok.Rows[i].Cells[0].Value.ToString(),
+                    StokID = dgVPersonelStok.Rows[i].Cells[0].Value.ToString(),
                     Kategori = dgVPersonelStok.Rows[i].Cells[3].Value.ToString(),
                     Marka = dgVPersonelStok.Rows[i].Cells[4].Value.ToString(),
                     UrunAdi = dgVPersonelStok.Rows[i].Cells[2].Value.ToString()
-                   
+
                 });
             }
 
@@ -103,23 +107,19 @@ namespace OdevTeslim.Formlar
             DepartmanSecimi();
         }
 
+
+        //Seçilen personele göre zimmet listesi görüntüleniyor
         private void dgVPersoneller_SelectionChanged(object sender, EventArgs e)
         {
             if (dgVPersoneller.SelectedRows.Count > 0)
             {
                 DataGridViewRow row = dgVPersoneller.SelectedRows[0];
                 int PerID = Convert.ToInt32(row.Cells[0].Value.ToString());
-                this.zimmetliStockViewTableAdapter.FillByPerID(this.projeDataSeti.ZimmetliStockView,PerID);
-                lblSeciliPersonel.Text = row.Cells[1].Value.ToString()+" "+row.Cells[2].Value.ToString();
-
-
-
-
-
-
+                this.zimmetliStockViewTableAdapter.FillByPerID(this.projeDataSeti.ZimmetliStockView, PerID);
+                lblSeciliPersonel.Text = row.Cells[1].Value.ToString() + " " + row.Cells[2].Value.ToString();
             }
         }
 
-        
+
     }
 }

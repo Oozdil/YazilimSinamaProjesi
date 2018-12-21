@@ -88,7 +88,7 @@ namespace OdevTeslim.Formlar
             GridviewSekillendir();
         }
 
-
+        //Seçili ürün labelda görünür
         Urun urun;
         private void dgVUrunler_SelectionChanged(object sender, EventArgs e)
         {
@@ -109,6 +109,8 @@ namespace OdevTeslim.Formlar
             }
         }
 
+
+        //Ekleme öncesi validasyonlar
         private void btnUrunEkle_Click(object sender, EventArgs e)
         {
             if (txBxFatNo.Text.Trim() == "")
@@ -130,6 +132,7 @@ namespace OdevTeslim.Formlar
             StokEkle(siparisAdet);
         }
 
+        //Ekleme işlemi
         Insert insertIslemi;
         private void StokEkle(int siparisAdet)
         {
@@ -153,6 +156,7 @@ namespace OdevTeslim.Formlar
 
         }
 
+        //siparis adet validasyonu
         int siparisAdet;
         private void txBxAdet_TextChanged(object sender, EventArgs e)
         {
@@ -167,6 +171,8 @@ namespace OdevTeslim.Formlar
             }
         }
         double siparisFiyat;
+
+        //Fiyat validasyonu
         private void txBxFiyat_TextChanged(object sender, EventArgs e)
         {
 
@@ -181,6 +187,7 @@ namespace OdevTeslim.Formlar
             }
 
         }
+        //tarih geçerlilik kontrolü
         string tarih = "";
         private void dTPickerFaturaTarih_ValueChanged(object sender, EventArgs e)
         {

@@ -24,32 +24,30 @@ namespace OdevTeslim.Formlar
         {
            
             this.departmanTBLTableAdapter1.Fill(this.projeDataSeti.DepartmanTBL);
-
-
             this.SetStyle(System.Windows.Forms.ControlStyles.SupportsTransparentBackColor, true);
             this.BackColor = System.Drawing.Color.Transparent;
             this.ForeColor = DepartmanZimmetForm.DefaultForeColor;
             this.Font = DepartmanZimmetForm.DefaultFont;
 
             comBxDepartmanlar.Visible = true;
+
+            //eğer kişi bölüm şefi ise sadece kendi departmanını görebilir
             if (zimmetApp.appUser.RoleID == 3)
-            {
-                
+            {                
                 this.departmanTBLTableAdapter1.FillByDepID(this.projeDataSeti.DepartmanTBL, zimmetApp.appUser.PerDepID);
                 lblSeciliDepartman.Text = zimmetApp.appUser.PerDepartmanAdi+" DEPARTMANI";
                 lblForDepartmanlar.Visible = false;
                 this.zimmetliStockViewTableAdapter.FillByDepID(this.projeDataSeti.ZimmetliStockView, zimmetApp.appUser.PerDepID);
             }
             else
-            {
-               
+            {               
                 DepartmanSecimi();
             }
 
            
                               
         }
-
+        //Raporlama araçları
         public ReportDataSource rs = new ReportDataSource();
         public class DepartmanStok
         {
@@ -59,6 +57,7 @@ namespace OdevTeslim.Formlar
             public string Marka { get; set; }
             public string FullIsim { get; set; }
         }
+        //Sorgu sonucumuz rapora aktarılıyor
         private void btnRaporAl_Click(object sender, EventArgs e)
         {
             List<DepartmanStok> lst = new List<DepartmanStok>();
@@ -85,7 +84,6 @@ namespace OdevTeslim.Formlar
             raporform.repVwDepartmanZimmet.LocalReport.DataSources.Clear();
             raporform.repVwDepartmanZimmet.LocalReport.DataSources.Add(rs);
             raporform.repVwDepartmanZimmet.LocalReport.ReportEmbeddedResource = "OdevTeslim.Raporlamalar.ReportDepartmanStok.rdlc";
-
             raporform.ShowDialog();
         }
 
@@ -112,6 +110,7 @@ namespace OdevTeslim.Formlar
 
         }
 
+        //datagridviewı şekillendiriyoruz
         private void dgVDepartmanStok_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
             dgVDepartmanStok.EnableHeadersVisualStyles = false;
@@ -130,6 +129,7 @@ namespace OdevTeslim.Formlar
             }
         }
 
+        //Seçili ürünün harelketleri görüntülüyoruz
         private void btnHareketDetay_Click(object sender, EventArgs e)
         {
             

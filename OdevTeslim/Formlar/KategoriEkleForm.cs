@@ -54,6 +54,10 @@ namespace OdevTeslim.Formlar
                 KategoriEkle();
             }
         }
+
+
+
+        //Ketegoriyi ekliyoruz
         Insert insertIslemi;
         private void KategoriEkle()
         {

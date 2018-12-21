@@ -23,9 +23,6 @@ namespace OdevTeslim.Formlar
         {
             // TODO: Bu kod satırı 'projeDataSeti.TedarikciTBL' tablosuna veri yükler. Bunu gerektiği şekilde taşıyabilir, veya kaldırabilirsiniz.
             this.tedarikciTBLTableAdapter1.Fill(this.projeDataSeti.TedarikciTBL);
-     
-
-
         }
 
         private void YeniTedarikciForm_Paint(object sender, PaintEventArgs e)
@@ -48,6 +45,8 @@ namespace OdevTeslim.Formlar
             this.tedarikciTBLTableAdapter1.Fill(this.projeDataSeti.TedarikciTBL);
             MessageBox.Show("Tedarikci eklendi");
         }
+
+        //Eklme yapılıyor
         Insert insertIslemi;
         private void TedarikciEkleme()
         {
