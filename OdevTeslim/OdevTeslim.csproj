@@ -51,6 +51,9 @@
     <Reference Include="Microsoft.ReportViewer.WinForms">
       <HintPath>..\..\Arşiv\WindowsFormsApp1\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.900.148\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
     </Reference>
+    <Reference Include="nunit.framework">
+      <HintPath>..\..\..\GitHub\uncleSoftwareTest\packages\NUnit.3.6.1\lib\net45\nunit.framework.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -199,12 +202,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>StokHareketleriDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Test.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Test.Designer.cs">
-      <DependentUpon>Test.cs</DependentUpon>
-    </Compile>
+    <Compile Include="Test.cs" />
     <Compile Include="Veritabani\DbIslemler.cs" />
     <Compile Include="Veritabani\Insert.cs" />
     <Compile Include="Veritabani\Login.cs" />
@@ -283,9 +281,6 @@
     <EmbeddedResource Include="Raporlamalar\ReportStok.rdlc" />
     <EmbeddedResource Include="Raporlamalar\ReportStokHareket.rdlc" />
     <EmbeddedResource Include="Raporlamalar\ReportZimmetTutanagi.rdlc" />
-    <EmbeddedResource Include="Test.resx">
-      <DependentUpon>Test.cs</DependentUpon>
-    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Datasets\ProjeDataSeti.xsc">
       <DependentUpon>ProjeDataSeti.xsd</DependentUpon>

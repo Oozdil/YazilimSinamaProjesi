@@ -109,5 +109,6 @@ C:\Users\orçun\Desktop\YzmSinamaOdev\OdevTeslim\OdevTeslim\bin\Debug\tr\Microso
 C:\Users\orçun\Desktop\YzmSinamaOdev\OdevTeslim\OdevTeslim\bin\Debug\tr\Microsoft.VisualStudio.Data.Core.resources.dll
 C:\Users\orçun\Desktop\YzmSinamaOdev\OdevTeslim\OdevTeslim\obj\Debug\OdevTeslim.exe.config
 C:\Users\orçun\Desktop\YzmSinamaOdev\OdevTeslim\OdevTeslim\obj\Debug\OdevTeslim.csprojAssemblyReference.cache
-C:\Users\orçun\Desktop\YzmSinamaOdev\OdevTeslim\OdevTeslim\obj\Debug\OdevTeslim.Test.resources
 C:\Users\orçun\Desktop\YzmSinamaOdev\OdevTeslim\OdevTeslim\obj\Debug\OdevTeslim.Formlar.UrunStokHareketForm.resources
+C:\Users\orçun\Desktop\YzmSinamaOdev\OdevTeslim\OdevTeslim\bin\Debug\nunit.framework.dll
+C:\Users\orçun\Desktop\YzmSinamaOdev\OdevTeslim\OdevTeslim\bin\Debug\nunit.framework.xml
